@@ -7,16 +7,14 @@ using System.Web;
 
 namespace BlogProject.UI.Areas.Author.Models.VM
 {
-    public class AddArticleVM
+    public class UpdateArticleVM
     {
-        public AddArticleVM()
+        public UpdateArticleVM()
         {
             Categories = new List<Category>();
             Article = new ArticleDTO();
-            AppUser = new AppUserDTO();
         }
         public List<Category> Categories { get; set; }
         public ArticleDTO Article { get; set; }
-        public AppUserDTO AppUser { get; set; }
     }
 }

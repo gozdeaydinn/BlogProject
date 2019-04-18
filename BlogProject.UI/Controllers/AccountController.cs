@@ -69,7 +69,7 @@ namespace BlogProject.UI.Controllers
                             string cookie = user.UserName;
                             FormsAuthentication.SetAuthCookie(cookie, true);
                             Session["FullName"] = user.FirstName + ' ' + user.LastName;
-                            return RedirectToAction("index", "home");
+                            return Redirect("/Admin/Home/Index");
                         }
                         else if (user.Role == Role.Author)
                         {
@@ -105,10 +105,12 @@ namespace BlogProject.UI.Controllers
                 return View();
             }
         }
+        [Authorize]//Login olmuş kullanıcılar için
         public ActionResult LogOut()
         {
-            TempData["class"] = "custom-hide";
-            return Redirect("/Home/Index");
+
+            FormsAuthentication.SignOut();
+            return Redirect("/Account/Login");
         }
     }
 }

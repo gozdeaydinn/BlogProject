@@ -12,10 +12,11 @@ namespace BlogProject.UI.Areas.Admin.Controllers
         public ActionResult Index()
         {
             TempData["class"] = "custom-hide";
-           
+            var model = service.ArticleService.GetActive().OrderByDescending(x => x.AddDate).Take(5);
+
             if (!HttpContext.User.Identity.IsAuthenticated)//kullanıcı kimliği doğrulandığında doğrulanır ... kimliği doğrulanmış formlarda kimliği doğrulanmış kullanıcıyı tanımlamak için setauthcookie kullanırız ....user otantike ise modele yönlendir
             {
-                return View();
+                return View(model);
             }
 
             AppUser appuser = new AppUser();
@@ -24,7 +25,7 @@ namespace BlogProject.UI.Areas.Admin.Controllers
             {
                 TempData["class"] = "custom-show";
             }
-            return View();
+            return View(model);
 
         }
     }

@@ -10,7 +10,7 @@ namespace BlogProject.DAL.ORM.Enum
     {
         None=0,
         Active=1,
-        Deleted = 2,
-        Modified=3
+        Modified = 2,
+        Deleted=3
     }
 }

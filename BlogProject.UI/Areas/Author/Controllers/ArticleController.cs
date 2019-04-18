@@ -28,8 +28,37 @@ namespace BlogProject.UI.Areas.Author.Controllers
         }
         public ActionResult List()
         {
-            List<Article> model = service.ArticleService.GetActive();
+            Guid userid = service.AppUserService.FindByUserName(User.Identity.Name).ID;
+            List<Article> model = service.ArticleService.GetDefault(x => x.AppUserID == userid && (x.Status == Status.Active || x.Status == Status.Modified));
             return View(model);
+        }
+        public ActionResult Update(Guid id)
+        {
+            Article article = service.ArticleService.GetById(id);
+            UpdateArticleVM model = new UpdateArticleVM();
+            model.Article.ID = article.ID;
+            model.Article.Header = article.Header;
+            model.Article.Content = article.Content;
+            List<Category> categorymodel = service.CategoryService.GetActive();
+            model.Categories = categorymodel;
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult Update(ArticleDTO data)
+        {
+            Article article = service.ArticleService.GetById(data.ID);
+            article.Header = data.Header;
+            article.Content = data.Content;
+            article.UpdateDate = DateTime.Now;
+            article.Status = Status.Modified;
+            article.CategoryID = data.CategoryID;
+            service.ArticleService.Update(article);
+            return Redirect("/Author/Article/List");
+        }
+        public ActionResult Delete(Guid id)
+        {
+            service.ArticleService.Remove(id);
+            return Redirect("/Author/Article/List");
         }
     }
 }

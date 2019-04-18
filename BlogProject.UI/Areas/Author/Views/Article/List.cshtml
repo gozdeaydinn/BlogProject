@@ -35,6 +35,7 @@
                                 <td>Header</td>
                                 <td>Content</td>
                                 <th>Category Name</th>
+                                <th>User Name</th>
                                 <td>Update</td>
                                 <td>Delete</td>
                             </tr>
@@ -47,6 +48,7 @@
                                     <td>@item.Header</td>
                                     <td>@item.Content</td>
                                     <td>@item.Category.CategoryName</td>
+                                    <td>@item.AppUser.UserName</td>
                                     <td><a href="/Author/Article/Update/@item.ID" type="button" class="btn btn-block btn-warning">Update</a></td>
                                     <td><a href="/Author/Article/Delete/@item.ID" type="button" class="btn btn-block btn-danger">Delete</a></td>
                                 </tr>

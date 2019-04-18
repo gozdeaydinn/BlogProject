@@ -55,7 +55,7 @@ namespace BlogProject.UI.Areas.Admin.Controllers
             service.AppUserService.Update(appuser);
             return Redirect("/Admin/AppUser/List");
         }
-        public ActionResult Remove(Guid id)
+        public ActionResult Delete(Guid id)
         {
             service.AppUserService.Remove(id);
             return Redirect("/Admin/AppUser/List");

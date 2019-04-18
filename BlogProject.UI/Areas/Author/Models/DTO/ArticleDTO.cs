@@ -9,5 +9,7 @@ namespace BlogProject.UI.Areas.Author.Models.DTO
     {
         public string Header { get; set; }
         public string Content { get; set; }
+
+        public Guid CategoryID { get; set; }
     }
 }

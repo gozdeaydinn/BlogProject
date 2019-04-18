@@ -137,10 +137,9 @@
     <Compile Include="Areas\Author\Controllers\ArticleController.cs" />
     <Compile Include="Areas\Author\Controllers\BaseController.cs" />
     <Compile Include="Areas\Author\Controllers\HomeController.cs" />
-    <Compile Include="Areas\Author\Models\DTO\AppUserDTO.cs" />
     <Compile Include="Areas\Author\Models\DTO\ArticleDTO.cs" />
     <Compile Include="Areas\Author\Models\DTO\BaseDTO.cs" />
-    <Compile Include="Areas\Author\Models\VM\AddArticleVM.cs" />
+    <Compile Include="Areas\Author\Models\VM\UpdateArticleVM.cs" />
     <Compile Include="Areas\Member\Controllers\ArticleController.cs" />
     <Compile Include="Areas\Member\Controllers\BaseController.cs" />
     <Compile Include="Areas\Member\Controllers\HomeController.cs" />
@@ -188,6 +187,7 @@
     <Content Include="Areas\Author\Views\Home\Index.cshtml" />
     <Content Include="Areas\Member\Views\Home\Index.cshtml" />
     <Content Include="Areas\Member\Views\Article\List.cshtml" />
+    <Content Include="Areas\Author\Views\Article\Update.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Account\Login.cshtml" />
     <None Include="Web.Debug.config">
