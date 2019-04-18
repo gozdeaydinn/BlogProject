@@ -54,7 +54,7 @@ namespace BlogProject.UI.Controllers
                 return View();
             }
         }
-        [HttpPost, ValidateAntiForgeryToken]
+        [HttpPost,ValidateAntiForgeryToken]
         public ActionResult Login(LoginVM credential)
         {
             if (ModelState.IsValid)

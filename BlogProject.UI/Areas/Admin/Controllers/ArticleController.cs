@@ -25,6 +25,7 @@ namespace BlogProject.UI.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Add(Article data)
         {
+            data.PublishDate = DateTime.Now;
             service.ArticleService.Add(data);
             return Redirect("/Admin/Article/List");
         }
@@ -40,6 +41,7 @@ namespace BlogProject.UI.Areas.Admin.Controllers
             model.Article.ID = article.ID;
             model.Article.Header = article.Header;
             model.Article.Content = article.Content;
+            model.Article.PublishDate = DateTime.Now;
             List<Category> categorymodel = service.CategoryService.GetActive();
             model.Categories = categorymodel;
             List<AppUser> appusermodel = service.AppUserService.GetActive();
@@ -52,6 +54,7 @@ namespace BlogProject.UI.Areas.Admin.Controllers
             Article article = service.ArticleService.GetById(data.ID);
             article.Header = data.Header;
             article.Content = data.Content;
+            article.PublishDate = data.PublishDate;
             article.UpdateDate = DateTime.Now;
             article.CategoryID = data.CategoryID;
             article.AppUserID = data.AppUserID;

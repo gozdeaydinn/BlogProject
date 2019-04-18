@@ -9,6 +9,7 @@ namespace BlogProject.UI.Areas.Admin.Models.DTO
     {
         public string Header { get; set; }
         public string Content { get; set; }
+        public DateTime? PublishDate { get; set; }
 
         public Guid CategoryID { get; set; }
         public Guid AppUserID { get; set; }

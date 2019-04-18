@@ -32,12 +32,13 @@
                     <table id="example2" class="table table-bordered table-hover">
                         <thead>
                             <tr>
-                                <td>Header</td>
-                                <td>Content</td>
+                                <th>Header</th>
+                                <th>Content</th>
+                                <th>Publish Date</th>
                                 <th>Category Name</th>
                                 <th>User Name</th>
-                                <td>Update</td>
-                                <td>Delete</td>
+                                <th>Update</th>
+                                <th>Delete</th>
                             </tr>
                         </thead>
 
@@ -47,6 +48,7 @@
                                 <tr>
                                     <td>@item.Header</td>
                                     <td>@item.Content</td>
+                                    <td>@item.PublishDate</td>
                                     <td>@item.Category.CategoryName</td>
                                     <td>@item.AppUser.UserName</td>
                                     <td><a href="/Admin/Article/Update/@item.ID" type="button" class="btn btn-block btn-warning">Update</a></td>

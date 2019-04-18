@@ -23,6 +23,7 @@ namespace BlogProject.UI.Areas.Author.Controllers
         {
             AppUser user = service.AppUserService.GetByDefault(x => x.UserName == User.Identity.Name);
             data.AppUserID = user.ID;
+            data.PublishDate = DateTime.Now;
             service.ArticleService.Add(data);
             return Redirect("/Author/Article/List");
         }
@@ -39,6 +40,7 @@ namespace BlogProject.UI.Areas.Author.Controllers
             model.Article.ID = article.ID;
             model.Article.Header = article.Header;
             model.Article.Content = article.Content;
+            model.Article.PublishDate = DateTime.Now;
             List<Category> categorymodel = service.CategoryService.GetActive();
             model.Categories = categorymodel;
             return View(model);
@@ -49,6 +51,7 @@ namespace BlogProject.UI.Areas.Author.Controllers
             Article article = service.ArticleService.GetById(data.ID);
             article.Header = data.Header;
             article.Content = data.Content;
+            article.PublishDate = data.PublishDate;
             article.UpdateDate = DateTime.Now;
             article.Status = Status.Modified;
             article.CategoryID = data.CategoryID;
@@ -59,6 +62,12 @@ namespace BlogProject.UI.Areas.Author.Controllers
         {
             service.ArticleService.Remove(id);
             return Redirect("/Author/Article/List");
+        }
+        public ActionResult Show(Article data)
+        {
+            AppUser user = service.AppUserService.GetByDefault(x => x.UserName == User.Identity.Name);
+            List<Article> model = service.ArticleService.GetDefault(x => x.AppUserID != user.ID);
+            return View(model);
         }
     }
 }

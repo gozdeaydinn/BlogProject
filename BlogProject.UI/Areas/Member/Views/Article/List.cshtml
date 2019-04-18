@@ -31,8 +31,9 @@
                     <table id="example2" class="table table-bordered table-hover">
                         <thead>
                             <tr>
-                                <td>Header</td>
-                                <td>Content</td>
+                                <th>Header</th>
+                                <th>Content</th>
+                                <th>Publish Date</th>
                                 <th>Category Name</th>
                                 <th>User Name</th>
                             </tr>
@@ -44,6 +45,7 @@
                                 <tr>
                                     <td>@item.Header</td>
                                     <td>@item.Content</td>
+                                    <td>@item.PublishDate</td>
                                     <td>@item.Category.CategoryName</td>
                                     <td>@item.AppUser.UserName</td>
                                 </tr>

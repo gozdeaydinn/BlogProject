@@ -38,10 +38,10 @@
                         <div class="form-group">
                             <label for="CategoryID">Choose Category</label>
                             <select name="CategoryID" class="form-control">
-                              @foreach (var item in Model.Categories)
-                              {
-                                  <option value="@item.ID">@item.CategoryName</option>
-                              }
+                                @foreach (var item in Model.Categories)
+                                {
+                                    <option value="@item.ID">@item.CategoryName</option>
+                                }
                             </select>
                         </div>
                         <div class="form-group">

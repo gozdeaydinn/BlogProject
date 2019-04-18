@@ -17,6 +17,7 @@ namespace BlogProject.UI
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                //namespaces: new[] { "BlogProject.UI.Controllers" }
             );
         }
     }

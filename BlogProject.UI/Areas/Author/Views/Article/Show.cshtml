@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "List";
+    ViewBag.Title = "Show";
     Layout = "~/Areas/Author/Views/Shared/AuthorLayoutPage.cshtml";
 }
 
@@ -14,8 +14,7 @@
 <section class="content-header">
     <ol class="breadcrumb">
         <li><a href="/Author/Home/Index"><i class="fa fa-home"></i> Home</a></li>
-        <li><a href="/Author/Article/Add">Add Article</a></li>
-        <li class="active">Article List</li>
+        <li class="active">Article Show</li>
     </ol>
 </section>
 <br />
@@ -37,8 +36,6 @@
                                 <th>Publish Date</th>
                                 <th>Category Name</th>
                                 <th>User Name</th>
-                                <th>Update</th>
-                                <th>Delete</th>
                             </tr>
                         </thead>
 
@@ -51,8 +48,6 @@
                                     <th>@item.PublishDate</th>
                                     <td>@item.Category.CategoryName</td>
                                     <td>@item.AppUser.UserName</td>
-                                    <td><a href="/Author/Article/Update/@item.ID" type="button" class="btn btn-block btn-warning">Update</a></td>
-                                    <td><a href="/Author/Article/Delete/@item.ID" type="button" class="btn btn-block btn-danger">Delete</a></td>
                                 </tr>
                             }
                         </tbody>
@@ -76,5 +71,3 @@
         })
     })
 </script>
-
-

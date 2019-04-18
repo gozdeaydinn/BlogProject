@@ -14,6 +14,7 @@ namespace BlogProject.DAL.ORM.Map
             ToTable("dbo.Articles");
             Property(x => x.Content).IsOptional();
             Property(x => x.Header).IsOptional();
+            Property(x => x.PublishDate).IsOptional();
 
             HasRequired(x => x.Category)
                 .WithMany(x => x.Articles)
